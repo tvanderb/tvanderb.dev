@@ -3,9 +3,9 @@
   <head>
     <title>tvanderb.dev</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="http://localhost:3000/styles/base.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
   </head>
-  <body>
+  <body onload="PLLoadRecentPosts('pageloader-recent-posts')">
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
@@ -39,33 +39,14 @@
         </section>
         <section>
           <ul id="pageloader-recent-posts" pageloader-resource-id="recent-posts">
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
-            <li><a href="/posts/2022-11-03">2022-11-03</a></li>
+            <!--<li><a href="/posts/2022-11-03">2022-11-03</a></li>-->
           </ul>
         </section>
       </aside>
     </main>
-    <footer><p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" />GPLv3</a>, this website is powered by semantic HTML, an <a href="https://www.nginx.com/">NGinX</a> reverse proxy, and a few shell scripts.<br/><a href="https://github.com/tvanderb" target="_blank">View Source</a> | Inspired by <a href="https://notusknot.com/" target="_blank">notusknot.com</a></p></footer>
-    <div class="alert"><p>Copied</p></div>
+    <footer><p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" />GPLv3</a>, this website is powered by semantic HTML, an <a href="https://www.nginx.com/">NGinX</a> reverse proxy, and a few shell scripts.<br/><a href="https://github.com/tvanderb/Build-Your-Own-Website" target="_blank">View Source</a> | Inspired by <a href="https://notusknot.com/" target="_blank">notusknot.com</a></p></footer>
+    <div class="alert hidden" id="copy-alert" style="display: hidden;"><p>Copied</p></div>
     <script type="application/javascript" src="/js/copy.js"></script>
+    <script type="application/javascript" src="/js/pageloader.js"></script>
   </body>
 </html>

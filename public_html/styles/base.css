@@ -87,11 +87,11 @@ body > div {
   max-width: initial;
 }
 
-body > div::-webkit-scrollbar {
+nav::-webkit-scrollbar, body > div::-webkit-scrollbar {
   display: none;
 }
 
-body > div {
+nav, body > div {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }
@@ -135,7 +135,7 @@ main {
   border-top-right-radius: 0px !important;
   border-top: none !important;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 4fr 2fr;
 }
 
 main > section {
@@ -229,16 +229,17 @@ footer p {
 }
 
 .alert {
+  z-index: 10;
   border-color: var(--accent-dark);
   position: absolute;
   right: 25px;
   bottom: 25px;
   margin: 0;
-  transition: 0.5s;
+  transition: 0.75s;
 }
 
 .alert.hidden {
-  transform: translateY(80px);
+  opacity: 0;
 }
 
 .alert p {
