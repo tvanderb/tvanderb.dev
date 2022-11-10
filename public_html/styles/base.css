@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+:root {
+  --background: #1f232b;
+  --background-light: #3b4252;
+  --footer: #4c566a;
+  --border: #434c5e;
+  --text-normal: #d8dee9;
+  --text-dark: #81838c;
+  --accent: #a3be8c;
+  --accent-dark: #5f754b;
+  --link: #81a1c1;
+  --link-hover: #88c0d0;
+  --text-soft: #e5e9f0;
+  --title: #bf616a;
+}
+
+* {
+  color: var(--text-normal);
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a,
+span.copy {
+  color: var(--link);
+  font-family: "Roboto Mono";
+  text-decoration: 2px underline;
+  cursor: pointer;
+  /* transition: 0.1s; */
+}
+
+a:hover,
+span.copy:hover {
+  color: var(--link-hover);
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background);
+  margin: 0;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 1000px) {
+}
+
+body > div,
+div.links,
+nav {
+  overflow-x: visible;
+  overflow-y: scroll;
+  width: 60%;
+}
+
+nav {
+  background: var(--background-light);
+  min-height: 40px;
+  margin-top: 80px;
+}
+
+@media only screen and (max-width: 750px) {
+  nav {
+    margin-top: 30px;
+  }
+}
+
+body > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  overflow-x: visible;
+  overflow-y: visible;
+  max-height: 100%;
+  max-width: initial;
+}
+
+body > div::-webkit-scrollbar {
+  display: none;
+}
+
+body > div {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+div > div,
+div > footer {
+  margin-top: 40px;
+}
+
+body > div > * {
+  border-radius: 4px;
+  /* border: 2px solid var(--border); */
+  border: 3px solid var(--background-light);
+}
+
+footer {
+  border: 3px solid var(--background-light) !important;
+}
+
+nav ul {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div main {
+  padding: 20px;
+}
+
+div > div {
+  padding: 0 20px;
+}
+
+main {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-top: none !important;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+main > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+main > section > * {
+  max-width: 85%;
+}
+
+div h1 {
+  color: #d08770;
+}
+div h2 {
+  color: var(--title);
+}
+
+div h1,
+div h3 {
+  text-transform: lowercase;
+}
+
+div h1,
+div h2,
+div h3 {
+  font-family: "Roboto Mono";
+}
+
+div h3 {
+  color: var(--accent);
+}
+
+div h3::before {
+  content: "$";
+  margin-right: 10px;
+}
+
+div p {
+  font-family: "Open Sans";
+}
+
+div ul li {
+  font-family: "Roboto Mono";
+  margin-bottom: 10px;
+}
+
+div ul li::before {
+  font-size: 20px;
+  content: "-";
+  margin-right: 20px;
+}
+
+main > section .main {
+}
+
+main > section .top > * {
+  margin: 0;
+}
+
+main > aside {
+  overflow: hidden;
+}
+
+div.home > main > aside h1 {
+  margin: 0;
+}
+
+main > aside ul {
+  overflow-y: scroll;
+  padding-left: 0;
+  max-height: 300px;
+}
+
+footer {
+  color: var(--text-soft);
+  background-color: var(--footer);
+  height: fit-content;
+  padding: 4px 6px;
+  margin-bottom: 30px;
+  min-width: 88%;
+}
+
+footer p {
+  padding: 0;
+  margin: 0;
+  line-height: 26px;
+  font-family: "Roboto Mono";
+  max-width: 98%;
+}
+
+.alert {
+  border-color: var(--accent-dark);
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  margin: 0;
+  transition: 0.5s;
+}
+
+.alert.hidden {
+  transform: translateY(80px);
+}
+
+.alert p {
+  font-family: "Roboto Mono";
+  font-size: 18px;
+  margin: 10px 15px;
+  font-weight: bold;
+  color: var(--accent-dark);
+  text-transform: uppercase;
+}
