@@ -22,11 +22,13 @@ async function PLFetchResource(elementId, resourceId, callback) {
 
 function PLLoadRecentPosts(elementId, resourceId) {
     const list = document.getElementById(elementId);
-    const resource = list.getAttribute("pageloader-resource-id");
+    let resource = list.getAttribute("pageloader-resource-id");
     
-    if (!resource) {
+    if (!resource && !resourceId) {
         console.error(`pageloader: element={${elementId}} Was not provided with a resource ID by attribute or parameter.`);
         return;
+    } else if (!resource && resourceId) {
+        resource = resourceId;
     }
 
     PLFetchResource(elementId, resource, (json) => {
