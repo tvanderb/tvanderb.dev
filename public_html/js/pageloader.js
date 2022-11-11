@@ -1,4 +1,4 @@
-async function PLFetchResource(elementId, resourceId, callback) {
+function PLFetchResource(elementId, resourceId, callback) {
     fetch(`/resources/${resourceId}.json`)
         .then((response) => {
             if (!response.ok) {
