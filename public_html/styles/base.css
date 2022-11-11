@@ -54,15 +54,20 @@ body {
   overflow-y: scroll;
 }
 
-@media only screen and (max-width: 1000px) {
-}
-
 body > div,
 div.links,
 nav {
   overflow-x: visible;
   overflow-y: scroll;
   width: 60%;
+}
+
+@media only screen and (max-width: 1000px) {
+  body > div,
+  div.links,
+  nav {
+    width: 95%;
+  }
 }
 
 nav {
