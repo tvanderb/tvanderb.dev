@@ -64,6 +64,7 @@ const BIND_PORT = getPortFromEnv();
 const app = express();
 
 app.use(express.static("./public_html"));
+app.use(express.static("./public_html", { index: false, extensions: ['html'] }));
 
 app.listen(BIND_PORT, BIND_ADDR, (error) => {
   if (error) {
