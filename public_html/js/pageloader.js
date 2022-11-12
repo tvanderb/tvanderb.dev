@@ -17,19 +17,32 @@ function PLFetchResource(elementId, resourceId, callback) {
 
             callback(json);
         })
-        .catch((_) => { throw new Error(`pageloader: element={${elementId}} resource={${resourceId}} An error occurred during resource request.`)});
+        .catch((_) => { throw new Error(`pageloader: element={${elementId}} resource={${resourceId}} An error occurred during resource request`)});
 }
 
-function PLLoadRecentPosts(elementId, resourceId) {
-    const list = document.getElementById(elementId);
-    let resource = list.getAttribute("pageloader-resource-id");
+function PLInitialize(elementId, resourceId) {
+    if (!elementId) {
+        throw new Error(`pageloader: element={${elementId}} resource={${resourceId}} Was not provided with an element ID by parameter`);
+    }
+
+    const element = document.getElementById(elementId);
+    let resource = element.getAttribute("pageloader-resource-id");
     
     if (!resource && !resourceId) {
-        console.error(`pageloader: element={${elementId}} Was not provided with a resource ID by attribute or parameter.`);
-        return;
+        throw new Error(`pageloader: element={${elementId}} Was not provided with a resource ID by attribute or parameter`);
     } else if (!resource && resourceId) {
         resource = resourceId;
     }
+
+    return {
+        resource: resource,
+        element: element,
+        elementId: elementId,
+    }
+}
+
+function PLLoadRecentPosts(elementId, resourceId) {
+    const { element, resource } = PLInitialize(elementId, resourceId);
 
     PLFetchResource(elementId, resource, (json) => {
         try {
@@ -41,7 +54,26 @@ function PLLoadRecentPosts(elementId, resourceId) {
                 a.text = post.date;
 
                 li.appendChild(a);
-                list.appendChild(li);
+                element.appendChild(li);
+            })
+        } catch (_) {}
+    });
+}
+
+function PLLoadProjects(elementId, resourceId) {
+    const { element, resource } = PLInitialize(elementId, resourceId);
+
+    PLFetchResource(elementId, resource, (json) => {
+        try {
+            json["projects"].forEach((project) => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.setAttribute("href", `${project.link}`);
+                a.setAttribute("target", "_blank");
+                a.text = project.text;
+
+                li.appendChild(a);
+                element.appendChild(li);
             })
         } catch (_) {}
     });

@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <title>tvanderb.dev</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body onload="PLLoadRecentPosts('pageloader-recent-posts')">
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/books">Books</a></li>
-        <li><a href="/links">Links</a></li>
-      </ul>
-    </nav>
-    <div class="home">
+
+<head>
+  <title>tvanderb.dev</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <div class="strapper-component" strapper-component-id="navbar"></div>
+  <div class="home">
     <main>
       <section>
         <section class="top">
@@ -23,14 +19,14 @@
         </section>
         <section>
           <h3>./about</h3>
-          <p>Hi, I'm Talon, a high-school student interested in computers. I like books, writing, and technology. I'm currently learning Rust. You can reach out to me with my email <a href="mailto:ekstropiya@pm.me">ekstropiya@pm.me</a> or on Discord with tag <span class="copy">tvanderb#5777</span></p>
+          <p>Hi, I'm Talon, a high-school student interested in computers. I like books, writing, and technology. I'm
+            currently learning Rust. You can reach out to me with my email <a
+              href="mailto:ekstropiya@pm.me">ekstropiya@pm.me</a> or on Discord with tag <span
+              class="copy">tvanderb#5777</span></p>
           <h3>./projects</h3>
           <p>
-            <ul id="pageloader-links">
-              <li><a href="https://">This very website!</a></li>
-              <li><a href="https://">My dotfiles for XMonad</a></li>
-              <li><a href="https://">A WIP Twitter clone</a></li>
-            </ul>
+          <ul id="pageloader-projects" pageloader-resource-id="projects">
+          </ul>
           </p>
         </section>
       </section>
@@ -40,14 +36,21 @@
         </section>
         <section>
           <ul id="pageloader-recent-posts" pageloader-resource-id="recent-posts">
-            <!--<li><a href="/posts/2022-11-03">2022-11-03</a></li>-->
           </ul>
         </section>
       </aside>
     </main>
-    <footer><p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" />GPLv3</a>, this website is powered by semantic HTML, an <a href="https://www.nginx.com/">NGinX</a> reverse proxy, and a few shell scripts.<br/><a href="https://github.com/tvanderb/Build-Your-Own-Website" target="_blank">View Source</a> | Inspired by <a href="https://notusknot.com/" target="_blank">notusknot.com</a></p></footer>
-    <div class="alert hidden" id="copy-alert" style="display: hidden;"><p>Copied</p></div>
+    <div class="strapper-component" strapper-component-id="footer"></div>
+    <div class="strapper-component" strapper-component-id="alert"></div>
     <script type="application/javascript" src="/js/copy.js"></script>
     <script type="application/javascript" src="/js/pageloader.js"></script>
-  </body>
+    <script type="application/javascript" src="/js/strap.js"></script>
+    <script type="application/javascript">
+      Strapper_installComponents();
+      
+      PLLoadRecentPosts("pageloader-recent-posts");
+      PLLoadProjects("pageloader-projects");
+    </script>
+</body>
+
 </html>

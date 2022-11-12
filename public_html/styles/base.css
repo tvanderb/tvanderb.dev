@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("/styles/fonts/Roboto Mono.css");
+@import url("/styles/fonts/Open Sans.css");
 
 :root {
   --background: #1f232b;
@@ -54,7 +54,7 @@ body {
   overflow-y: scroll;
 }
 
-body > div,
+body>div,
 div.links,
 nav {
   overflow-x: visible;
@@ -63,7 +63,7 @@ nav {
 }
 
 @media only screen and (max-width: 1000px) {
-  body > div,
+  body>div,
   div.links,
   nav {
     width: 95%;
@@ -82,7 +82,7 @@ nav {
   }
 }
 
-body > div {
+body>div {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -92,21 +92,24 @@ body > div {
   max-width: initial;
 }
 
-nav::-webkit-scrollbar, body > div::-webkit-scrollbar {
+nav::-webkit-scrollbar,
+body>div::-webkit-scrollbar {
   display: none;
 }
 
-nav, body > div {
-  -ms-overflow-style: none; /* IE and Edge */
+nav,
+body>div {
+  -ms-overflow-style: none;
+  /* IE and Edge */
   scrollbar-width: none;
 }
 
-div > div,
-div > footer {
+div>div,
+div>footer {
   margin-top: 40px;
 }
 
-body > div > * {
+body>div>* {
   border-radius: 4px;
   /* border: 2px solid var(--border); */
   border: 3px solid var(--background-light);
@@ -131,7 +134,7 @@ div main {
   padding: 20px;
 }
 
-div > div {
+div>div {
   padding: 0 20px;
 }
 
@@ -143,19 +146,20 @@ main {
   grid-template-columns: 4fr 2fr;
 }
 
-main > section {
+main>section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-main > section > * {
+main>section>* {
   max-width: 85%;
 }
 
 div h1 {
   color: #d08770;
 }
+
 div h2 {
   color: var(--title);
 }
@@ -195,22 +199,21 @@ div ul li::before {
   margin-right: 20px;
 }
 
-main > section .main {
-}
+main>section .main {}
 
-main > section .top > * {
+main>section .top>* {
   margin: 0;
 }
 
-main > aside {
+main>aside {
   overflow: hidden;
 }
 
-div.home > main > aside h1 {
+div.home>main>aside h1 {
   margin: 0;
 }
 
-main > aside ul {
+main>aside ul {
   overflow-y: scroll;
   padding-left: 0;
   max-height: 300px;
@@ -234,13 +237,12 @@ footer p {
 }
 
 .alert {
-  z-index: 10;
   border-color: var(--accent-dark);
   position: absolute;
   right: 25px;
   bottom: 25px;
   margin: 0;
-  transition: 0.75s;
+  transition: 0.5s;
 }
 
 .alert.hidden {
