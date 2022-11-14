@@ -142,14 +142,15 @@ main {
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-top: none !important;
-  display: grid;
-  grid-template-columns: 4fr 2fr;
+  display: flex;
+  flex-direction: row;
 }
 
 main>section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  min-width: 70%;
 }
 
 main>section>* {
@@ -199,14 +200,25 @@ div ul li::before {
   margin-right: 20px;
 }
 
-main>section .main {}
-
-main>section .top>* {
+main > section > .top h1,
+main > section > .top h2 {
   margin: 0;
 }
 
-main>aside {
+div.home main > section > .top {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+main > section > .top > img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid var(--border);
+}
+
+main > aside {
   overflow: hidden;
+  min-width: 30%;
 }
 
 div.home>main>aside h1 {
