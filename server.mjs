@@ -49,7 +49,7 @@ function getPortFromEnv() {
       )
     );
     help(
-      "Probably due to invalid setting for the TETRABIT-WWW-SRV-BIND_PORT environment variable."
+      "Probably due to invalid setting for the AMAZING-WEBSITE-SRV-BIND_PORT environment variable."
     );
     panic();
     return -1;
