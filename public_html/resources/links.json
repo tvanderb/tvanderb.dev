@@ -2,11 +2,27 @@
   "links": [
     {
       "title": "GitHub",
+      "hover": "My GitHub profile.",
+      "content": "github/tvanderb",
       "url": "https://github.com/tvanderb"
     },
     {
       "title": "Twitter",
-      "url": "https://twitter.com/tee_van_der_bee"
+      "hover": "My Twitter profile.",
+      "content": "@tvanderbek",
+      "url": "https://twitter.com/tvanderbek"
+    },
+    {
+      "title": "Discord",
+      "hover": "The tag for My primary Discord account. Double click to copy.",
+      "content": "tvanderb#5777",
+      "copy": true
+    },
+    {
+      "title": "Email",
+      "hover": "My primary public email address.",
+      "content": "ekstropiya@pm.me",
+      "url": "mailto:ekstropiya@pm.me"
     }
   ]
 }

@@ -200,17 +200,22 @@ div ul li::before {
   margin-right: 20px;
 }
 
+div ul li p {
+  margin: 0;
+}
+
 main > section > .top h1,
 main > section > .top h2 {
   margin: 0;
 }
 
-div.home main > section > .top {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
+main > section > .top {
+  display: flex;
+  flex-direction: row;
 }
 
 main > section > .top > img {
+  margin-right: 20px;
   width: 70px;
   height: 70px;
   border: 2px solid var(--border);

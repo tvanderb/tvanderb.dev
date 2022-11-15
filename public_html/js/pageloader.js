@@ -41,7 +41,7 @@ function PLInitialize(elementId, resourceId) {
     }
 }
 
-function PLLoadRecentPosts(elementId, resourceId) {
+function PLLoadRecentPosts(elementId, resourceId, callback) {
     const { element, resource } = PLInitialize(elementId, resourceId);
 
     PLFetchResource(elementId, resource, (json) => {
@@ -56,11 +56,12 @@ function PLLoadRecentPosts(elementId, resourceId) {
                 li.appendChild(a);
                 element.appendChild(li);
             })
+            callback();
         } catch (_) {}
     });
 }
 
-function PLLoadProjects(elementId, resourceId) {
+function PLLoadProjects(elementId, resourceId, callback) {
     const { element, resource } = PLInitialize(elementId, resourceId);
 
     PLFetchResource(elementId, resource, (json) => {
@@ -75,6 +76,43 @@ function PLLoadProjects(elementId, resourceId) {
                 li.appendChild(a);
                 element.appendChild(li);
             })
+            callback();
         } catch (_) {}
+    });
+}
+
+function PLLoadLinks(elementId, resourceId, callback) {
+    const { element, resource } = PLInitialize(elementId, resourceId);
+
+    PLFetchResource(elementId, resource, (json) => {
+        try {
+            json["links"].forEach((link) => {
+                const li = document.createElement("li");
+                li.textContent = `${link["title"]}: `;
+
+                let content;
+
+                if (link["copy"] === true) {
+                    content = document.createElement("span");
+                    content.classList.add("copy");
+                } else {
+                    content = document.createElement("a");
+                    content.setAttribute("href", link["url"]);
+                    content.setAttribute("target", "_blank");
+                }
+
+                if (link["hover"]) {
+                    content.setAttribute("title", link["hover"]);
+                }
+
+                content.textContent = link["content"];
+
+                li.appendChild(content);
+                element.appendChild(li);
+            })
+            hookCopyEvents();
+        } catch (error) {
+            console.error(error);
+        }
     });
 }

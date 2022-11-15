@@ -1,19 +1,28 @@
-const span = document.querySelector("span.copy");
+function hookCopyEvents() {
+  const copy_tags = document.getElementsByClassName("copy");
 
-span.onclick = function() {
-  document.execCommand("copy");
-}
+  for (const tag in copy_tags) {
+    if (Object.hasOwnProperty.call(copy_tags, tag)) {
+      const span = copy_tags[tag];
 
-span.addEventListener("copy", (event) => {
-  event.preventDefault();
-  if (event.clipboardData) {
-    event.clipboardData.setData("text/plain", span.textContent);
+      span.onclick = () => {
+        document.execCommand("copy");
+      }
 
-    const alert = document.querySelector("#copy-alert");
-    alert.classList.remove("hidden");
+      span.addEventListener("copy", (event) => {
+        event.preventDefault();
+        if (event.clipboardData) {
+          event.clipboardData.setData("text/plain", span.textContent);
 
-    setTimeout(() => {
-      alert.classList.add("hidden");
-    }, 1500);
+          const alert = document.querySelector("#copy-alert");
+          alert.classList.remove("hidden");
+
+          setTimeout(() => {
+            alert.classList.add("hidden");
+          }, 1500);
+        }
+      });
+    }
   }
-});
+
+}

@@ -1,12 +1,8 @@
 {
     "projects": [
         {
-            "text": "This very website!",
+            "text": "This website! (HTML, CSS, and JavaScript)",
             "link": "https://github.com/tvanderb/tvanderb.dev"
-        },
-        {
-            "text": "A WIP Twitter-esque social media platform",
-            "link": ""
         },
         {
             "text": "My dotfiles for Arch + XMonad",

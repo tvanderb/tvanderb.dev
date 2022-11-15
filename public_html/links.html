@@ -8,26 +8,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body onload="Strapper_installComponents(); PLLoadRecentPosts('pageloader-recent-posts');">
+<body>
   <div class="strapper-component" strapper-component-id="navbar"></div>
   <div class="links">
     <main>
       <section id="links-section">
         <section class="top">
-          <h1>/links</h1>
-          <h2>Me on the Internet, Elsewhere</h2>
+          <img src="/assets/internet.jpg">
+          <section class="title">
+            <h1>/links</h1>
+            <h2>Me on the Internet, Elsewhere</h2>
+          </section>
         </section>
         <h3>./why</h3>
         <p>Time and money should not be spent wastefully. In order to justify the existence of my website, I've decided that I could add purpose by providing information that people may actually want about me: how to contact me.</p>
         <h3>./so</h3>
-        <p>The following is a few pieces of information that may help you get in touch with me. Feel free to reach out for any reason.</p>
+        <p>The following is a few pieces of information that may help you get in touch with me. Feel free to reach out for any reason at any time.</p>
         <h3>./list</h3>
-        <ul>
-          <li>github: <a href="https://github.com/tvanderb" target="_blank" title="My GitHub profile.">github/tvanderb</a></li>
+        <ul id="pageloader-links" pageloader-resource-id="links">
+          <!-- <li>github: <a href="https://github.com/tvanderb" target="_blank" title="My GitHub profile.">github/tvanderb</a></li>
           <li>twitter: <a href="https://twitter.com/tvanderbek" target="_blank" title="My Twitter profile.">@tvanderbek</a></li>
           <li>discord: <span class="copy" title="The tag for my primary Discord account. Double click to copy.">tvanderb#5777</li></span></li>
           <li>pgp: <span class="copy" title="A public PGP fingerprint belonging to me. Double click to copy.">aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa</span></li>
-          <li>email: <a href="mailto:ekstropiya@pm.me" title="My primary public email address.">ekstropiya@pm.me</a></li>
+          <li>email: <a href="mailto:ekstropiya@pm.me" title="My primary public email address.">ekstropiya@pm.me</a></li> -->
         </ul>
       </section>
     </main>
@@ -36,6 +39,14 @@
     <script type="application/javascript" src="/js/copy.js"></script>
     <script type="application/javascript" src="/js/pageloader.js"></script>
     <script type="application/javascript" src="/js/strap.js"></script>
+    <script type="application/javascript">
+      Strapper_installComponents();
+      
+      PLLoadLinks("pageloader-links", () => {
+        console.log("callback")
+        hookCopyEvents();
+      });
+    </script>
 </body>
 
 </html>
